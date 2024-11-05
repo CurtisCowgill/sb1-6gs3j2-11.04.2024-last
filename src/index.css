@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 768px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    @apply grid-cols-1;
+  }
+  
+  .md\:grid-cols-2,
+  .md\:grid-cols-3,
+  .md\:grid-cols-4 {
+    @apply grid-cols-1;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-cols-3,
+  .grid-cols-4 {
+    @apply grid-cols-2;
+  }
+  
+  .md\:grid-cols-3,
+  .md\:grid-cols-4 {
+    @apply grid-cols-2;
+  }
+}
+
+/* Table Responsiveness */
+.table-responsive {
+  @apply overflow-x-auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  .table-responsive table {
+    @apply whitespace-nowrap;
+  }
+}
+
+/* Card and Container Spacing */
+@media (max-width: 768px) {
+  .space-y-6 {
+    @apply space-y-4;
+  }
+  
+  .p-6 {
+    @apply p-4;
+  }
+  
+  .gap-6 {
+    @apply gap-4;
+  }
+}
+
+/* Navigation Adjustments */
+@media (max-width: 768px) {
+  .nav-collapsed {
+    @apply w-16;
+  }
+  
+  .nav-expanded {
+    @apply w-64;
+  }
+}
+
+/* Leaflet Map Styles */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Custom marker colors */
+.custom-icon-stakeout img {
+  filter: hue-rotate(200deg);
+}
+
+.custom-icon-footings img {
+  filter: hue-rotate(100deg);
+}
+
+.custom-icon-walls img {
+  filter: hue-rotate(30deg);
+}
+
+.custom-icon-strip img {
+  filter: hue-rotate(270deg);
+}
+
+.custom-icon-waterproofing img {
+  filter: hue-rotate(320deg);
+}
+
+.custom-icon-flatwork img {
+  filter: hue-rotate(140deg);
+}
+
+/* Leaflet popup customization */
+.leaflet-popup-content-wrapper {
+  @apply rounded-lg;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  padding: 0;
+}
+
+.leaflet-control-container .leaflet-control {
+  z-index: 2;
+}
+
+/* Fix map container issues */
+.leaflet-container {
+  font: inherit;
+}
+
+.leaflet-container .leaflet-control-attribution {
+  @apply bg-white/80 px-1.5 text-xs;
+}
+
+/* Modal Responsiveness */
+.modal-container {
+  @apply px-4;
+}
+
+@media (max-width: 640px) {
+  .modal-content {
+    @apply w-full max-w-[95%] mx-auto;
+  }
+}
+
+/* Form Field Responsiveness */
+.form-field {
+  @apply w-full;
+}
+
+@media (max-width: 640px) {
+  .form-field-group {
+    @apply flex-col;
+  }
+  
+  .form-field {
+    @apply mb-4;
+  }
+}
+
+/* Button Responsiveness */
+@media (max-width: 640px) {
+  .btn-group {
+    @apply flex-col space-y-2;
+  }
+  
+  .btn-group > * {
+    @apply w-full;
+  }
+}
+
+/* Toast Notifications */
+@media (max-width: 640px) {
+  .toast-container {
+    @apply left-4 right-4 bottom-4;
+    max-width: calc(100% - 2rem);
+  }
+}
+
+/* Dropdown Menus */
+.dropdown-content {
+  @apply origin-top-right;
+}
+
+@media (max-width: 640px) {
+  .dropdown-content {
+    @apply w-screen max-w-[calc(100vw-2rem)] left-1/2 -translate-x-1/2;
+  }
+}
